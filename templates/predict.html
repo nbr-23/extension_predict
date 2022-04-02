@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+<!--====================================
+      ——— BARRE DE MENU DE GAUCHE
+      =====================================-->
+<aside class="left-sidebar bg-sidebar">
+    <div id="sidebar" class="sidebar sidebar-with-footer">
+        <!-- Aplication Brand -->
+        <div class="app-brand">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='img/logo/losange_logo.png') }}" class="user-image"
+                    alt="logo Retail Brands ">
+                <span class="brand-name">Retail Brands</span>
+            </a>
+        </div>
+        <!-- begin sidebar scrollbar -->
+        <div class="sidebar-scrollbar">
+            <!-- sidebar menu -->
+            <ul class="nav sidebar-inner" id="sidebar-menu">
+                <li class="has-sub active expand">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#predict"
+                        aria-expanded="false" aria-controls="">
+                        <i class="mdi mdi-view-dashboard-outline"></i>
+                        <span class="nav-text"></span>Client <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="predict" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li class="has-sub active expand">
+                                <a class="sidenav-item-link" href="" data-toggle="collapse" data-target="#components"
+                                    aria-expanded="false" aria-controls="components">
+                                    <span class="nav-text">Prédiction dans le temps</span></b>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+        </div>
+        <div class="space"></div>
+    </div>
+</aside>
+
+<!--====================================
+          ——— BARRE DE MENU DU MILIEU
+          =====================================-->
+
+<div class="page-wrapper">
+    <header class="main-header " id="header">
+        <nav class="navbar navbar-static-top navbar-expand-lg">
+            <div class="search-form d-none d-lg-inline-block">
+                <div class="input-group">
+                    <h5 style="font-size:2em; margin-left: 3em; color: #f6f6f7; font-family: 'Segoe UI ', sans-serif;">
+                        Retail Brands IA - Prédiction dans le temps</h5>
+                </div>
+                <div id="search-results-container">
+                    <ul id="search-results"></ul>
+                </div>
+            </div>
+
+            <!--===== LOGO DU CLIENT ======-->
+
+            <div class="navbar-right ">
+                <ul class="nav navbar-nav">
+                    <li class="user-menu logo-client">
+                        <a href="{{ url_for('logout') }}"> <i class="mdi mdi-logout"></i> Déconnexion </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="card card-default">
+        <div class="card-header card-header-border-bottom">
+            Prédiction des ventes
+        </div>
+        <div class="card-body">
+            <div class="row">
+                
+                            <form class=margin-me action="{{url_for('predict')}}" method="post">
+                                <label>CHOISIR UN ASIN</label>
+                                 <select name="comb_select" class="Input">
+                                     {% for i in data %}
+                                     <option value="{{i.asin}}">{{i.asin}}</option>
+                                     {% endfor %}
+                                 </select>
+                                 <button type="submit" class="btn pred-btn">Choisir</button>
+                            </form>
+                {{ graph }}
+                    
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}

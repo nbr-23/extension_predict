@@ -1,0 +1,20 @@
+.container {
+    padding-top: 3em;
+}
+
+body{
+    background-color: #212a39;
+}
+
+.card{
+    background-color:#febd69;
+    margin-bottom: 3em;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.btn-dark{
+    background-color: #212a39;
+}

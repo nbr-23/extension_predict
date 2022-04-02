@@ -1,0 +1,20 @@
+<div class="card card-default" id="user-activity">
+    <section id="report-container" powerbi-settings-nav-content-pane-enabled="{{ navigation_enabled }}"
+        class="embed-container">
+
+        
+        <form class=margin-me action="{{url_for('predict')}}" method="post">
+            <input class="Input" type="text" name="asin" placeholder="Choisir un ASIN" />
+             <select name="comb_select" class="Input">
+                 {% for i in data %}
+                 <option value="{{i.asin}}">{{i.asin}}</option>
+                 {% endfor %}
+             </select>
+             <button type="submit" class="pred-btn">Choisir</button>
+        </form>
+
+        <!--                    SECTION DASHBOARD                          -->
+
+
+    </section>
+</div>

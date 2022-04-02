@@ -1,0 +1,73 @@
+//templates/home.html
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<!--====================================
+      ——— BARRE DE MENU DE GAUCHE
+      =====================================-->
+
+<aside class="left-sidebar bg-sidebar">
+    <div id="sidebar" class="sidebar sidebar-with-footer">
+        <!-- Aplication Brand -->
+        <div class="app-brand">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='img/logo/losange_logo.png') }}" class="user-image"
+                    alt="logo ">
+                <span class="brand-name">Retail Brands</span>
+            </a>
+        </div>
+        <!-- begin sidebar scrollbar -->
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-content">
+                <hr class="separator" />
+                <h6 class="text-uppercase">
+                    <a href="{{ url_for('logout') }}"> <i class="mdi mdi-logout"></i> Déconnexion </a>
+                </h6>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!--====================================
+            ——— BARRE DE MENU DU MILIEU
+            =====================================-->
+
+<div class="page-wrapper">
+    <header class="main-header " id="header">
+        <nav class="navbar navbar-static-top navbar-expand-lg">
+            <div class="search-form d-none d-lg-inline-block">
+                <div class="input-group">
+                    <h5
+                        style="font-size:2em; margin-left: 3em; margin-top : 0; color: #f6f6f7; font-family: 'Segoe UI ', sans-serif;">
+                        Retail Brands IA</h5>
+                </div>
+                <div id="search-results-container">
+                    <ul id="search-results"></ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    </header>
+    <div class="card card-default">
+        <div class="card-header card-header-border-bottom">
+            <h2>Type de prédiction </h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-3 col-xl-4"></div>
+                <div class="col-lg-6 col-xl-4 margin-me">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-header bg-primary"></div>
+                        <div class="card-body shadow">
+                            <h5 class="card-title">Prédiction dans le temps</h5>
+                            <a href="/predict_sales" class="btn btn-color">Accèder au visuel<i
+                                    class="mdi mdi-chevron-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
