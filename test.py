@@ -24,7 +24,7 @@ class TestBase(unittest.TestCase):
         soup = BeautifulSoup(response.data, 'html.parser')
 
         # Check if is the login page
-        self.assertIn('Retail Brands', soup.find('title').text)
+        self.assertIn('Retail4Brands', soup.find('title').text)
 
         # Check if the login succeed and the authorized links
         self.assertTrue(soup.select('a[href="/logout"]'))
